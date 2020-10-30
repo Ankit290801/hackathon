@@ -4,6 +4,7 @@ import Home from './HomeComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
 import Register from './RegisterComponent';
+import User from './UserComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 class Main extends Component{
@@ -33,6 +34,7 @@ class Main extends Component{
                     <Route path="/aboutus" component={() => <About />}></Route>
                     <Route path="/contact" component={() => <Contact />}></Route>
                     <Route path="/register" component={() => <Register />}></Route>
+                    <Route path="/user" component={() => <User />}></Route>
                     <Redirect to="/home" />
                 </Switch>
             </>

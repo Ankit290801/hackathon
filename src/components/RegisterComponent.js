@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
 import fire from './fire';
+import {Card} from 'reactstrap';
+
+import { Button,Form, Label, Input, FormGroup, FormControl } from 'reactstrap';
 
 export default function RegisterComponent() {
     
@@ -20,39 +23,37 @@ const [Cpassword,newCPassword]=useState('');
 
     return (
         <div>
-             <div className="text-center">
+             <div className="text-center container">
                     <h1>Registration Form</h1>
                     <p>Guidance to shape your future</p>
                 </div>
-
+                <Card className="card">
                 <form onSubmit={handlesubmit}>
-                    <label>Name</label>
-                    <input type="text" 
+                    <label className="mr-2 ml-2 mb-4">Name</label>
+                    <input type="text"
                     placeholder="Enter Full Name"
                     value={name}
                     onChange={e=>newName(e.target.value)}
                     />
-
-                    <label>Email</label>
+                    <br/>
+                    <label className="mr-2 ml-2 mb-4">Email</label>
                     <input type="text" placeholder="Email Id"
                      value={email}
                      onChange={e=>newEmail(e.target.value)}/>
-
-                    <label>Create Password</label>
+                    <br/>
+                    <label className="mr-2 ml-2 mb-4">Create Password</label>
                     <input type="password" placeholder="New Password"
                      value={password}
                      onChange={e=>newPassword(e.target.value)}/>
-
-                    <label>Confirm Password</label>
+                    <br/>
+                    <label className="mr-2 ml-2 mb-4">Confirm Password</label>
                     <input type="password" placeholder="Confirm Password"
                      value={Cpassword}
                      onChange={e=>newCPassword(e.target.value)}/>
-
-                   
-
-
+                    <br/>
                     <input type="submit" value="Submit" />
                 </form>
+                </Card>
         </div>
     )
 }

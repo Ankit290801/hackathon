@@ -147,6 +147,13 @@ class Header extends Component {
                     </Nav>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
+                            <NavLink className="nav-link" to="/user">
+                            <Button outline style={this.getStyle()} className="m-2">
+                                    <span className="fa fa-user fs-lg"></span> Username
+                            </Button> 
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
                             <Button outline style={this.userLoggedOut()} onClick={this.toggleModal} className="m-2">
                                 <span className="fa fa-sign-in fs-lg"></span> Login
                             </Button>
@@ -161,7 +168,7 @@ class Header extends Component {
                         <NavItem>
                             <NavLink className="nav-link" to="/register">
                                 <Button outline style={this.getStyle()} onClick={this.LogOut} >
-                                    <span className="fa fa-user-plus fs-lg"></span> LogOut
+                                    <span className="fa fa-sign-out fs-lg"></span> LogOut
                                 </Button>
                             </NavLink>  
                         </NavItem>
