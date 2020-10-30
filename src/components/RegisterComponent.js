@@ -1,57 +1,58 @@
-import React, {Component} from 'react';
-import { Button, Label, Col, Row } from 'reactstrap';
-import { Control, Form, Errors } from 'react-redux-form';
+import React,{useState} from 'react';
+import fire from './fire';
 
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !(val) || (val.length <= len);
-const minLength = (len) => (val) => val && (val.length >= len);
-const isNumber = (val) => !isNaN(Number(val));
-const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
-
-class Register extends Component{
+export default function RegisterComponent() {
+    
+const [name,newName]=useState('');
+const [email,newEmail]=useState('');
+const [password,newPassword]=useState('');
+const [Cpassword,newCPassword]=useState('');
 
 
-    constructor(props) {
-        super(props);
+ const handlesubmit=e=>{
+     e.preventDefault();
+    console.log(name + password + Cpassword + email);
+    fire.auth().createUserWithEmailAndPassword(email,password).then(cred=>{
+        console.log(cred);
+    })
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+}
 
-    handleSubmit(values) {
-        this.props.postFeedback(values);
-        this.props.resetFeedbackForm();
-    }
-
-    render(){
-        return(
-            <div>
-                <div className="text-center">
+    return (
+        <div>
+             <div className="text-center">
                     <h1>Registration Form</h1>
                     <p>Guidance to shape your future</p>
                 </div>
 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handlesubmit}>
                     <label>Name</label>
-                    <input type="text" placeholder="Enter Full Name"/>
+                    <input type="text" 
+                    placeholder="Enter Full Name"
+                    value={name}
+                    onChange={e=>newName(e.target.value)}
+                    />
 
                     <label>Email</label>
-                    <input type="text" placeholder="Email Id"/>
+                    <input type="text" placeholder="Email Id"
+                     value={email}
+                     onChange={e=>newEmail(e.target.value)}/>
 
                     <label>Create Password</label>
-                    <input type="password" placeholder="New Password"/>
+                    <input type="password" placeholder="New Password"
+                     value={password}
+                     onChange={e=>newPassword(e.target.value)}/>
 
                     <label>Confirm Password</label>
-                    <input type="password" placeholder="Confirm Password"/>
+                    <input type="password" placeholder="Confirm Password"
+                     value={Cpassword}
+                     onChange={e=>newCPassword(e.target.value)}/>
 
-                    <label>Name</label>
-                    <input type="text" placeholder="Enter Full Name"/>
+                   
 
 
                     <input type="submit" value="Submit" />
                 </form>
-            </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default Register;

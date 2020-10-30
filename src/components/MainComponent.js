@@ -7,15 +7,27 @@ import Register from './RegisterComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 class Main extends Component{
+    constructor(props)
+    {
+        super(props)
+        this.state={
+            logged:false
+        }
+        this.IsLogged=this.IsLogged.bind(this);
+    }
+
+    IsLogged(){
+        alert('userLogged' + this.state.logged);
+    }
     render(){
 
         const Homepage = () => {
-            return <Home />
+            return <Home/>
         }
 
         return(
             <>
-                <Header />
+                <Header logged={this.IsLogged}/>
                 <Switch>
                     <Route path="/home" component={Homepage} />
                     <Route path="/aboutus" component={() => <About />}></Route>
