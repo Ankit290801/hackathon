@@ -29,12 +29,33 @@ const [Cpassword,newCPassword]=useState('');
                 </div>
                 <Card className="card">
                 <form onSubmit={handlesubmit}>
-                    <label className="mr-2 ml-2 mb-4">Name</label>
+                    <label className="mr-2 ml-2 mb-4">First Name</label>
                     <input type="text"
                     placeholder="Enter Full Name"
                     value={name}
                     onChange={e=>newName(e.target.value)}
                     />
+                     <br />
+                     <label className="mr-2 ml-2 mb-4">Last Name</label>
+                    <input type="text"
+                    placeholder="Enter Full Name"
+                    value={name}
+                    onChange={e=>newName(e.target.value)}
+                    />
+                  
+                    <Input type="select">
+                    <option>Area Of Interest</option>
+                    <option>Android Dev</option>
+                    <option>Machine Learning</option>
+                    <option>web Dev</option>
+                    </Input>
+                    <br/>
+                    <Input type="select">
+                    <option>what are you registering as ?</option>
+                    <option>student</option>
+                    <option>teacher</option>
+                    <option>other</option>
+                    </Input>
                     <br/>
                     <label className="mr-2 ml-2 mb-4">Email</label>
                     <input type="text" placeholder="Email Id"
@@ -51,6 +72,9 @@ const [Cpassword,newCPassword]=useState('');
                      value={Cpassword}
                      onChange={e=>newCPassword(e.target.value)}/>
                     <br/>
+                    <label>upload resume</label>
+                    <input type="file" name="upload resume" id="exampleFile" />
+                    <br />
                     <input type="submit" value="Submit" />
                 </form>
                 </Card>

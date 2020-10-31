@@ -1,8 +1,10 @@
 .landing{
-    background-image: url(./img/ld-bg.jpg);
-    background-size: cover;
-    height: 100vh;
+    margin:30px;
+    background-image: url(./img/back.svg);
+    background-size: contain;
+    height: 80vh;
     width: 100%;
+    margin:auto;
     background-repeat: no-repeat;
 }
 
@@ -20,9 +22,10 @@
 
 
 .card{
+    box-shadow: black;
     margin: 20px auto;
     justify-content: center;
     align-items: center;
-    height: 300px;
-    width: 350px;
+    height: 480px;
+    width: 400px;
 }
