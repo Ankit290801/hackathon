@@ -10,7 +10,8 @@ class Header extends Component {
         this.state = {
             isNavOpen : false,
             isModalOpen : false,
-            isUserLoggedIn: false
+            isUserLoggedIn: false,
+            isRotating:false
         };
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
@@ -18,11 +19,18 @@ class Header extends Component {
         this.LogOut = this.LogOut.bind(this);
         this.toggleLogged = this.toggleLogged.bind(this);
         this.userStatus = this.userStatus.bind(this);
+        this.handleRotate=this.handleRotate.bind(this);
     }
 
     toggleNav(){
         this.setState({
             isNavOpen : !this.state.isNavOpen
+        });
+    }
+    handleRotate()
+    {
+        this.setState({
+            isRotating:!this.state.isRotating
         });
     }
 
@@ -42,6 +50,7 @@ class Header extends Component {
     
     handleLogin(event){
         this.toggleModal();
+        this.handleRotate();
         //alert("Username: " + this.username.value + " Password: " + this.password.value + " Remember: " + this.remember.checked);
         fire
         .auth()
@@ -49,11 +58,12 @@ class Header extends Component {
         .then(cred=>{
             console.log(cred);
             this.toggleLogged();
-          
+          this.handleRotate();
            
         })
         .catch(err=>{
         console.log(err);
+        this.handleRotate();
         });
         
         
@@ -88,7 +98,7 @@ class Header extends Component {
     }
 
     getSpinnerStyle=()=>{
-        if(this.state.isUserLoggedIn)
+        if(this.state.isRotating)
         {
             return {
                 width: '3rem', height: '3rem' ,position:'relative',top:'50%',left:'50%',
@@ -148,7 +158,7 @@ class Header extends Component {
                     <Nav className="ml-auto" navbar>
                         <NavItem>
                             <NavLink className="nav-link" to="/user">
-                            <Button outline style={this.getStyle()} className="m-2">
+                            <Button outline style={this.getStyle()} className="mx-2">
                                     <span className="fa fa-user fs-lg"></span> Username
                             </Button> 
                             </NavLink>
