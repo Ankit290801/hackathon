@@ -3,8 +3,10 @@ import { Spinner , Alert , Navbar, NavbarBrand, Nav, NavItem, Collapse, NavbarTo
         Button, Modal, ModalHeader, ModalBody, Form, Label, Input, FormGroup } from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import fire from './fire';
-class Header extends Component {
 
+class Header extends Component {
+    
+   
     constructor(props) {
         super(props);
         this.state = {
@@ -21,6 +23,8 @@ class Header extends Component {
         this.userStatus = this.userStatus.bind(this);
         this.handleRotate=this.handleRotate.bind(this);
     }
+
+ 
 
     toggleNav(){
         this.setState({
@@ -52,6 +56,8 @@ class Header extends Component {
         this.toggleModal();
         this.handleRotate();
         //alert("Username: " + this.username.value + " Password: " + this.password.value + " Remember: " + this.remember.checked);
+       
+
         fire
         .auth()
         .signInWithEmailAndPassword(this.username.value,this.password.value)
@@ -145,6 +151,11 @@ class Header extends Component {
                             </NavLink>
                         </NavItem>
                         <NavItem style={this.getStyle()}>
+                            <NavLink className="nav-link" to="/homepage">
+                                <span  className="fa fa-home fa-lg"></span>Explore
+                            </NavLink>
+                        </NavItem>
+                        <NavItem style={this.getStyle()}>
                             <NavLink className="nav-link" to="/aboutus">
                                 <span className="fa fa-info fa-lg"></span>About Us
                             </NavLink>
@@ -186,6 +197,11 @@ class Header extends Component {
                     </Collapse>
                 </div>
                 </Navbar>
+                <input type="text"
+                className="form-search"
+                 style={this.getStyle()} 
+                    placeholder="search"
+                />
                 <Jumbotron style={this.getStyle()} >
                     <div className="container">
                         <div className="row row-header">

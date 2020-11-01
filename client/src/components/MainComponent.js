@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Header from './HeaderComponent';
-import Home from './HomeComponent';
+import HomePage from './HomeComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
 import Register from './RegisterComponent';
 import User from './UserComponent';
+import Home from './homepage';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 class Main extends Component{
@@ -23,14 +24,15 @@ class Main extends Component{
     render(){
 
         const Homepage = () => {
-            return <Home/>
+            return <HomePage />
         }
 
         return(
             <>
                 <Header logged={this.IsLogged}/>
                 <Switch>
-                    <Route path="/home" component={Homepage} />
+                    <Route path="/homepage" component={() => <HomePage />}></Route>
+                    <Route path="/home" component={() => <Home />}></Route>
                     <Route path="/aboutus" component={() => <About />}></Route>
                     <Route path="/contact" component={() => <Contact />}></Route>
                     <Route path="/register" component={() => <Register />}></Route>
