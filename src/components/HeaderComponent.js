@@ -190,8 +190,8 @@ class Header extends Component {
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
-                                <h1>Ristorante Con Fusion</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                                <h1>GuideYuva</h1>
+                                <p>We guide budding young developers and suggest community groups to create a unique open source experience. Our expert mentors will definitely provide the solution you have been craving thus far!</p>
                             </div>
                         </div>
                     </div>

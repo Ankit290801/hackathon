@@ -5,7 +5,7 @@ import {Card} from 'reactstrap';
 import { Button,Form, Label, Input, FormGroup, FormControl } from 'reactstrap';
 
 export default function RegisterComponent() {
-    
+
 const [name,newName]=useState('');
 const [email,newEmail]=useState('');
 const [password,newPassword]=useState('');
@@ -31,14 +31,14 @@ const [Cpassword,newCPassword]=useState('');
                 <form onSubmit={handlesubmit}>
                     <label className="mr-2 ml-2 mb-4">First Name</label>
                     <input type="text"
-                    placeholder="Enter Full Name"
+                    placeholder="Enter First Name"
                     value={name}
                     onChange={e=>newName(e.target.value)}
                     />
                      <br />
                      <label className="mr-2 ml-2 mb-4">Last Name</label>
                     <input type="text"
-                    placeholder="Enter Full Name"
+                    placeholder="Enter Last Name"
                     value={name}
                     onChange={e=>newName(e.target.value)}
                     />
